@@ -1,0 +1,166 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="AUTOSAR" targetNamespace="http://autosar.org/schema/r4.0" xmlns:mstns="http://autosar.org/schema/r4.0" xmlns="http://autosar.org/schema/r4.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:element name="ELEMENTS">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="SENDER-RECEIVER-INTERFACE" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="SHORT-NAME" type="xs:string" minOccurs="0" msdata:Ordinal="0" />
+              <xs:element name="DATA-ELEMENTS" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="VARIABLE-DATA-PROTOTYPE" minOccurs="0" maxOccurs="unbounded">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="SHORT-NAME" type="xs:string" minOccurs="0" msdata:Ordinal="0" />
+                          <xs:element ref="SW-DATA-DEF-PROPS" minOccurs="0" maxOccurs="unbounded" />
+                          <xs:element ref="TYPE-TREF" minOccurs="0" maxOccurs="unbounded" />
+                        </xs:sequence>
+                        <xs:attribute name="UUID" form="unqualified" type="xs:string" />
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+            <xs:attribute name="UUID" form="unqualified" type="xs:string" />
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="CLIENT-SERVER-INTERFACE" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="SHORT-NAME" type="xs:string" minOccurs="0" msdata:Ordinal="0" />
+              <xs:element name="IS-SERVICE" type="xs:string" minOccurs="0" msdata:Ordinal="1" />
+              <xs:element name="SERVICE-KIND" type="xs:string" minOccurs="0" msdata:Ordinal="2" />
+              <xs:element name="OPERATIONS" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="CLIENT-SERVER-OPERATION" minOccurs="0" maxOccurs="unbounded">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="SHORT-NAME" type="xs:string" minOccurs="0" msdata:Ordinal="0" />
+                          <xs:element name="ARGUMENTS" minOccurs="0" maxOccurs="unbounded">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="ARGUMENT-DATA-PROTOTYPE" minOccurs="0" maxOccurs="unbounded">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element name="SHORT-NAME" type="xs:string" minOccurs="0" msdata:Ordinal="0" />
+                                      <xs:element name="DIRECTION" type="xs:string" minOccurs="0" msdata:Ordinal="2" />
+                                      <xs:element name="SERVER-ARGUMENT-IMPL-POLICY" type="xs:string" minOccurs="0" msdata:Ordinal="3" />
+                                      <xs:element ref="SW-DATA-DEF-PROPS" minOccurs="0" maxOccurs="unbounded" />
+                                      <xs:element ref="TYPE-TREF" minOccurs="0" maxOccurs="unbounded" />
+                                    </xs:sequence>
+                                    <xs:attribute name="UUID" form="unqualified" type="xs:string" />
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="POSSIBLE-ERROR-REFS" minOccurs="0" maxOccurs="unbounded">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="POSSIBLE-ERROR-REF" nillable="true" minOccurs="0" maxOccurs="unbounded">
+                                  <xs:complexType>
+                                    <xs:simpleContent msdata:ColumnName="POSSIBLE-ERROR-REF_Text" msdata:Ordinal="1">
+                                      <xs:extension base="xs:string">
+                                        <xs:attribute name="DEST" form="unqualified" type="xs:string" />
+                                      </xs:extension>
+                                    </xs:simpleContent>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                        <xs:attribute name="UUID" form="unqualified" type="xs:string" />
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="POSSIBLE-ERRORS" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="APPLICATION-ERROR" minOccurs="0" maxOccurs="unbounded">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="SHORT-NAME" type="xs:string" minOccurs="0" msdata:Ordinal="0" />
+                          <xs:element name="ERROR-CODE" type="xs:string" minOccurs="0" msdata:Ordinal="1" />
+                        </xs:sequence>
+                        <xs:attribute name="UUID" form="unqualified" type="xs:string" />
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+            <xs:attribute name="UUID" form="unqualified" type="xs:string" />
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SW-DATA-DEF-PROPS">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="SW-DATA-DEF-PROPS-VARIANTS" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="SW-DATA-DEF-PROPS-CONDITIONAL" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="SW-CALIBRATION-ACCESS" type="xs:string" minOccurs="0" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TYPE-TREF" nillable="true">
+    <xs:complexType>
+      <xs:simpleContent msdata:ColumnName="TYPE-TREF_Text" msdata:Ordinal="1">
+        <xs:extension base="xs:string">
+          <xs:attribute name="DEST" form="unqualified" type="xs:string" />
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AUTOSAR" msdata:IsDataSet="true" msdata:Locale="en-US">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="ELEMENTS" />
+        <xs:element ref="SW-DATA-DEF-PROPS" />
+        <xs:element ref="TYPE-TREF" />
+        <xs:element name="AR-PACKAGE-MY">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="SHORT-NAME" type="xs:string" minOccurs="0" msdata:Ordinal="0" />
+              <xs:element ref="ELEMENTS" minOccurs="0" maxOccurs="unbounded" />
+              <xs:element name="AR-PACKAGES" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="AR-PACKAGE" minOccurs="0" maxOccurs="unbounded">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="SHORT-NAME" type="xs:string" minOccurs="0" msdata:Ordinal="0" />
+                          <xs:element ref="ELEMENTS" minOccurs="0" maxOccurs="unbounded" />
+                        </xs:sequence>
+                        <xs:attribute name="UUID" form="unqualified" type="xs:string" />
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+            <xs:attribute name="UUID" form="unqualified" type="xs:string" />
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

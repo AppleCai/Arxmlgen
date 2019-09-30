@@ -1,0 +1,308 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="AUTOSAR" targetNamespace="http://autosar.org/schema/r4.0" xmlns:mstns="http://autosar.org/schema/r4.0" xmlns="http://autosar.org/schema/r4.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:element name="DATA-ELEMENT-REF" nillable="true">
+    <xs:complexType>
+      <xs:simpleContent msdata:ColumnName="DATA-ELEMENT-REF_Text" msdata:Ordinal="1">
+        <xs:extension base="xs:string">
+          <xs:attribute name="DEST" form="unqualified" type="xs:string" />
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="INIT-VALUE">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="NUMERICAL-VALUE-SPECIFICATION" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="VALUE" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="START-ON-EVENT-REF" nillable="true">
+    <xs:complexType>
+      <xs:simpleContent msdata:ColumnName="START-ON-EVENT-REF_Text" msdata:Ordinal="1">
+        <xs:extension base="xs:string">
+          <xs:attribute name="DEST" form="unqualified" type="xs:string" />
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="VARIABLE-ACCESS">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="SHORT-NAME" type="xs:string" minOccurs="0" msdata:Ordinal="0" />
+        <xs:element name="ACCESSED-VARIABLE" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="AUTOSAR-VARIABLE-IREF" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="PORT-PROTOTYPE-REF" nillable="true" minOccurs="0" maxOccurs="unbounded">
+                      <xs:complexType>
+                        <xs:simpleContent msdata:ColumnName="PORT-PROTOTYPE-REF_Text" msdata:Ordinal="1">
+                          <xs:extension base="xs:string">
+                            <xs:attribute name="DEST" form="unqualified" type="xs:string" />
+                          </xs:extension>
+                        </xs:simpleContent>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="TARGET-DATA-PROTOTYPE-REF" nillable="true" minOccurs="0" maxOccurs="unbounded">
+                      <xs:complexType>
+                        <xs:simpleContent msdata:ColumnName="TARGET-DATA-PROTOTYPE-REF_Text" msdata:Ordinal="1">
+                          <xs:extension base="xs:string">
+                            <xs:attribute name="DEST" form="unqualified" type="xs:string" />
+                          </xs:extension>
+                        </xs:simpleContent>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute name="UUID" form="unqualified" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AUTOSAR" msdata:IsDataSet="true" msdata:Locale="en-US">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="DATA-ELEMENT-REF" />
+        <xs:element ref="INIT-VALUE" />
+        <xs:element ref="START-ON-EVENT-REF" />
+        <xs:element ref="VARIABLE-ACCESS" />
+        <xs:element name="AR-PACKAGES">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="AR-PACKAGE" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="SHORT-NAME" type="xs:string" minOccurs="0" msdata:Ordinal="0" />
+                    <xs:element name="ELEMENTS" minOccurs="0" maxOccurs="unbounded">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="APPLICATION-SW-COMPONENT-TYPE" minOccurs="0" maxOccurs="unbounded">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="SHORT-NAME" type="xs:string" minOccurs="0" msdata:Ordinal="0" />
+                                <xs:element name="PORTS" minOccurs="0" maxOccurs="unbounded">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element name="P-PORT-PROTOTYPE" minOccurs="0" maxOccurs="unbounded">
+                                        <xs:complexType>
+                                          <xs:sequence>
+                                            <xs:element name="SHORT-NAME" type="xs:string" minOccurs="0" msdata:Ordinal="0" />
+                                            <xs:element name="PROVIDED-COM-SPECS" minOccurs="0" maxOccurs="unbounded">
+                                              <xs:complexType>
+                                                <xs:sequence>
+                                                  <xs:element name="NONQUEUED-SENDER-COM-SPEC" minOccurs="0" maxOccurs="unbounded">
+                                                    <xs:complexType>
+                                                      <xs:sequence>
+                                                        <xs:element ref="DATA-ELEMENT-REF" minOccurs="0" maxOccurs="unbounded" />
+                                                        <xs:element ref="INIT-VALUE" minOccurs="0" maxOccurs="unbounded" />
+                                                      </xs:sequence>
+                                                    </xs:complexType>
+                                                  </xs:element>
+                                                </xs:sequence>
+                                              </xs:complexType>
+                                            </xs:element>
+                                            <xs:element name="PROVIDED-INTERFACE-TREF" nillable="true" minOccurs="0" maxOccurs="unbounded">
+                                              <xs:complexType>
+                                                <xs:simpleContent msdata:ColumnName="PROVIDED-INTERFACE-TREF_Text" msdata:Ordinal="1">
+                                                  <xs:extension base="xs:string">
+                                                    <xs:attribute name="DEST" form="unqualified" type="xs:string" />
+                                                  </xs:extension>
+                                                </xs:simpleContent>
+                                              </xs:complexType>
+                                            </xs:element>
+                                          </xs:sequence>
+                                          <xs:attribute name="UUID" form="unqualified" type="xs:string" />
+                                        </xs:complexType>
+                                      </xs:element>
+                                      <xs:element name="R-PORT-PROTOTYPE" minOccurs="0" maxOccurs="unbounded">
+                                        <xs:complexType>
+                                          <xs:sequence>
+                                            <xs:element name="SHORT-NAME" type="xs:string" minOccurs="0" msdata:Ordinal="0" />
+                                            <xs:element name="REQUIRED-COM-SPECS" minOccurs="0" maxOccurs="unbounded">
+                                              <xs:complexType>
+                                                <xs:sequence>
+                                                  <xs:element name="NONQUEUED-RECEIVER-COM-SPEC" minOccurs="0" maxOccurs="unbounded">
+                                                    <xs:complexType>
+                                                      <xs:sequence>
+                                                        <xs:element name="ALIVE-TIMEOUT" type="xs:string" minOccurs="0" />
+                                                        <xs:element name="ENABLE-UPDATE" type="xs:string" minOccurs="0" />
+                                                        <xs:element name="HANDLE-NEVER-RECEIVED" type="xs:string" minOccurs="0" />
+                                                        <xs:element ref="DATA-ELEMENT-REF" minOccurs="0" maxOccurs="unbounded" />
+                                                        <xs:element name="FILTER" minOccurs="0" maxOccurs="unbounded">
+                                                          <xs:complexType>
+                                                            <xs:sequence>
+                                                              <xs:element name="DATA-FILTER-TYPE" type="xs:string" minOccurs="0" />
+                                                            </xs:sequence>
+                                                          </xs:complexType>
+                                                        </xs:element>
+                                                        <xs:element ref="INIT-VALUE" minOccurs="0" maxOccurs="unbounded" />
+                                                      </xs:sequence>
+                                                    </xs:complexType>
+                                                  </xs:element>
+                                                </xs:sequence>
+                                              </xs:complexType>
+                                            </xs:element>
+                                            <xs:element name="REQUIRED-INTERFACE-TREF" nillable="true" minOccurs="0" maxOccurs="unbounded">
+                                              <xs:complexType>
+                                                <xs:simpleContent msdata:ColumnName="REQUIRED-INTERFACE-TREF_Text" msdata:Ordinal="1">
+                                                  <xs:extension base="xs:string">
+                                                    <xs:attribute name="DEST" form="unqualified" type="xs:string" />
+                                                  </xs:extension>
+                                                </xs:simpleContent>
+                                              </xs:complexType>
+                                            </xs:element>
+                                          </xs:sequence>
+                                          <xs:attribute name="UUID" form="unqualified" type="xs:string" />
+                                        </xs:complexType>
+                                      </xs:element>
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                                <xs:element name="INTERNAL-BEHAVIORS" minOccurs="0" maxOccurs="unbounded">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element name="SWC-INTERNAL-BEHAVIOR" minOccurs="0" maxOccurs="unbounded">
+                                        <xs:complexType>
+                                          <xs:sequence>
+                                            <xs:element name="SHORT-NAME" type="xs:string" minOccurs="0" msdata:Ordinal="0" />
+                                            <xs:element name="SUPPORTS-MULTIPLE-INSTANTIATION" type="xs:string" minOccurs="0" msdata:Ordinal="2" />
+                                            <xs:element name="EVENTS" minOccurs="0" maxOccurs="unbounded">
+                                              <xs:complexType>
+                                                <xs:sequence>
+                                                  <xs:element name="INIT-EVENT" minOccurs="0" maxOccurs="unbounded">
+                                                    <xs:complexType>
+                                                      <xs:sequence>
+                                                        <xs:element name="SHORT-NAME" type="xs:string" minOccurs="0" msdata:Ordinal="0" />
+                                                        <xs:element ref="START-ON-EVENT-REF" minOccurs="0" maxOccurs="unbounded" />
+                                                      </xs:sequence>
+                                                      <xs:attribute name="UUID" form="unqualified" type="xs:string" />
+                                                    </xs:complexType>
+                                                  </xs:element>
+                                                  <xs:element name="TIMING-EVENT" minOccurs="0" maxOccurs="unbounded">
+                                                    <xs:complexType>
+                                                      <xs:sequence>
+                                                        <xs:element name="SHORT-NAME" type="xs:string" minOccurs="0" msdata:Ordinal="0" />
+                                                        <xs:element name="PERIOD" type="xs:string" minOccurs="0" msdata:Ordinal="2" />
+                                                        <xs:element ref="START-ON-EVENT-REF" minOccurs="0" maxOccurs="unbounded" />
+                                                      </xs:sequence>
+                                                      <xs:attribute name="UUID" form="unqualified" type="xs:string" />
+                                                    </xs:complexType>
+                                                  </xs:element>
+                                                  <xs:element name="DATA-RECEIVED-EVENT" minOccurs="0" maxOccurs="unbounded">
+                                                    <xs:complexType>
+                                                      <xs:sequence>
+                                                        <xs:element name="SHORT-NAME" type="xs:string" minOccurs="0" msdata:Ordinal="0" />
+                                                        <xs:element ref="START-ON-EVENT-REF" minOccurs="0" maxOccurs="unbounded" />
+                                                        <xs:element name="DATA-IREF" minOccurs="0" maxOccurs="unbounded">
+                                                          <xs:complexType>
+                                                            <xs:sequence>
+                                                              <xs:element name="CONTEXT-R-PORT-REF" nillable="true" minOccurs="0" maxOccurs="unbounded">
+                                                                <xs:complexType>
+                                                                  <xs:simpleContent msdata:ColumnName="CONTEXT-R-PORT-REF_Text" msdata:Ordinal="1">
+                                                                    <xs:extension base="xs:string">
+                                                                      <xs:attribute name="DEST" form="unqualified" type="xs:string" />
+                                                                    </xs:extension>
+                                                                  </xs:simpleContent>
+                                                                </xs:complexType>
+                                                              </xs:element>
+                                                              <xs:element name="TARGET-DATA-ELEMENT-REF" nillable="true" minOccurs="0" maxOccurs="unbounded">
+                                                                <xs:complexType>
+                                                                  <xs:simpleContent msdata:ColumnName="TARGET-DATA-ELEMENT-REF_Text" msdata:Ordinal="1">
+                                                                    <xs:extension base="xs:string">
+                                                                      <xs:attribute name="DEST" form="unqualified" type="xs:string" />
+                                                                    </xs:extension>
+                                                                  </xs:simpleContent>
+                                                                </xs:complexType>
+                                                              </xs:element>
+                                                            </xs:sequence>
+                                                          </xs:complexType>
+                                                        </xs:element>
+                                                      </xs:sequence>
+                                                      <xs:attribute name="UUID" form="unqualified" type="xs:string" />
+                                                    </xs:complexType>
+                                                  </xs:element>
+                                                </xs:sequence>
+                                              </xs:complexType>
+                                            </xs:element>
+                                            <xs:element name="RUNNABLES" minOccurs="0" maxOccurs="unbounded">
+                                              <xs:complexType>
+                                                <xs:sequence>
+                                                  <xs:element name="RUNNABLE-ENTITY" minOccurs="0" maxOccurs="unbounded">
+                                                    <xs:complexType>
+                                                      <xs:sequence>
+                                                        <xs:element name="SHORT-NAME" type="xs:string" minOccurs="0" msdata:Ordinal="0" />
+                                                        <xs:element name="MINIMUM-START-INTERVAL" type="xs:string" minOccurs="0" msdata:Ordinal="1" />
+                                                        <xs:element name="SYMBOL" type="xs:string" minOccurs="0" msdata:Ordinal="3" />
+                                                        <xs:element name="DATA-RECEIVE-POINT-BY-ARGUMENTS" minOccurs="0" maxOccurs="unbounded">
+                                                          <xs:complexType>
+                                                            <xs:sequence>
+                                                              <xs:element ref="VARIABLE-ACCESS" minOccurs="0" maxOccurs="unbounded" />
+                                                            </xs:sequence>
+                                                          </xs:complexType>
+                                                        </xs:element>
+                                                        <xs:element name="DATA-SEND-POINTS" minOccurs="0" maxOccurs="unbounded">
+                                                          <xs:complexType>
+                                                            <xs:sequence>
+                                                              <xs:element ref="VARIABLE-ACCESS" minOccurs="0" maxOccurs="unbounded" />
+                                                            </xs:sequence>
+                                                          </xs:complexType>
+                                                        </xs:element>
+                                                      </xs:sequence>
+                                                      <xs:attribute name="UUID" form="unqualified" type="xs:string" />
+                                                    </xs:complexType>
+                                                  </xs:element>
+                                                </xs:sequence>
+                                              </xs:complexType>
+                                            </xs:element>
+                                          </xs:sequence>
+                                          <xs:attribute name="UUID" form="unqualified" type="xs:string" />
+                                        </xs:complexType>
+                                      </xs:element>
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                              <xs:attribute name="UUID" form="unqualified" type="xs:string" />
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="SWC-IMPLEMENTATION" minOccurs="0" maxOccurs="unbounded">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="SHORT-NAME" type="xs:string" minOccurs="0" msdata:Ordinal="0" />
+                                <xs:element name="BEHAVIOR-REF" nillable="true" minOccurs="0" maxOccurs="unbounded">
+                                  <xs:complexType>
+                                    <xs:simpleContent msdata:ColumnName="BEHAVIOR-REF_Text" msdata:Ordinal="1">
+                                      <xs:extension base="xs:string">
+                                        <xs:attribute name="DEST" form="unqualified" type="xs:string" />
+                                      </xs:extension>
+                                    </xs:simpleContent>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                              <xs:attribute name="UUID" form="unqualified" type="xs:string" />
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                  <xs:attribute name="UUID" form="unqualified" type="xs:string" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
